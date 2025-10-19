@@ -18,12 +18,12 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 3. **Execute plan workflow**: Follow the structure in IMPL_PLAN template to:
    - Fill Technical Context (mark unknowns as "NEEDS CLARIFICATION")
-   - Fill Constitution Check section from constitution
+   - Fill Constitution Check section from constitution (clean code, simple UX, responsive, dependency minimalism, testing prohibition)
    - Evaluate gates (ERROR if violations unjustified)
    - Phase 0: Generate research.md (resolve all NEEDS CLARIFICATION)
-   - Phase 1: Generate data-model.md, contracts/, quickstart.md
+   - Phase 1: Generate data-model.md, contracts/, and quickstart.md (manual validation guide)
    - Phase 1: Update agent context by running the agent script
-   - Re-evaluate Constitution Check post-design
+   - Re-evaluate Constitution Check post-design, confirming no automated testing is planned and dependency changes are justified
 
 4. **Stop and report**: Command ends after Phase 2 planning. Report branch, IMPL_PLAN path, and generated artifacts.
 
@@ -60,10 +60,10 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Validation rules from requirements
    - State transitions if applicable
 
-2. **Generate API contracts** from functional requirements:
-   - For each user action → endpoint
-   - Use standard REST/GraphQL patterns
-   - Output OpenAPI/GraphQL schema to `/contracts/`
+2. **Generate API contracts** from functional requirements (only if interfaces are part of the scope):
+   - For each user action → endpoint or handler
+   - Use idiomatic patterns that keep dependencies minimal (prefer platform-native capabilities)
+   - Output OpenAPI/GraphQL schema to `/contracts/` when applicable
 
 3. **Agent context update**:
    - Run `.specify/scripts/bash/update-agent-context.sh codex`
@@ -72,9 +72,16 @@ You **MUST** consider the user input before proceeding (if not empty).
    - Add only new technology from current plan
    - Preserve manual additions between markers
 
-**Output**: data-model.md, /contracts/*, quickstart.md, agent-specific file
+4. **Document manual validation** in `quickstart.md`:
+   - Detail walkthroughs for desktop, tablet, and mobile viewports
+   - List accessibility checks (keyboard, focus order, contrast)
+   - Capture dependency audit steps (confirm no new packages unless justified)
+
+**Output**: research.md, data-model.md, /contracts/* (if needed), quickstart.md, updated agent-specific file
 
 ## Key rules
 
 - Use absolute paths
 - ERROR on gate failures or unresolved clarifications
+- Do **not** introduce automated testing plans—manual validation replaces them
+- Justify every new dependency against the constitution (or avoid adding it)

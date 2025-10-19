@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Codex1 Principles
+
+This project is governed by the `Codex1 Constitution` stored in `.specify/memory/constitution.md`. Every change must respect the following non‑negotiable rules:
+
+- **Clean Code First** — Keep components lean, intention‑revealing, and well factored.
+- **Simple UX** — Deliver the smallest, clearest flow that solves the user problem.
+- **Responsive by Default** — Design layouts that adapt gracefully across breakpoints with accessible interactions.
+- **Dependency Minimalism** — Use the built-in capabilities of Next.js 15.5.6, React 19.1.0, React DOM 19.1.0, and Tailwind CSS 4.1.14 before reaching for new packages.
+- **Testing Prohibition** — Automated tests of any kind (unit, integration, e2e) are disallowed. Rely on manual review, live previews, and collaborative walkthroughs instead.
 
 ## Getting Started
 
-First, run the development server:
+Run the local development server with the `turbopack` dev tooling:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# or yarn dev / pnpm dev / bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` and iterate in `src/app/page.tsx` or supporting components. Tailwind CSS is available globally through `src/app/globals.css`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Manual Validation Workflow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Because automated tests are prohibited, every feature should include:
 
-## Learn More
+1. A brief manual validation script in `specs/<feature>/quickstart.md` covering desktop, tablet, and mobile breakpoints.
+2. Notes on accessibility checks (keyboard navigation, focus order, contrast).
+3. A dependency audit confirming no unnecessary packages were added.
 
-To learn more about Next.js, take a look at the following resources:
+Use `/speckit.checklist` to generate requirement-quality checklists that capture these review gates.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Recommended Reading
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js App Router docs](https://nextjs.org/docs/app) — Focus on data fetching and routing patterns that keep client bundles slim.
+- [Tailwind CSS 4](https://tailwindcss.com/docs) — Prefer utility-first styling and avoid custom CSS unless required.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployment remains compatible with the standard Next.js pipeline (e.g., Vercel). Ensure manual validation passes before shipping. Automated CI gates should exclude test commands per the constitution.
