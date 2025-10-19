@@ -158,7 +158,7 @@ You **MUST** consider the user input before proceeding (if not empty).
    - "Are requirements specified for partial data loading failures? [Coverage, Exception Flow]"
    
    Measurability:
-   - "Are visual hierarchy requirements measurable/confirmable? [Acceptance Criteria, Spec §FR-1]"
+   - "Are visual hierarchy requirements measurable/testable? [Acceptance Criteria, Spec §FR-1]"
    - "Can 'balanced visual weight' be objectively verified? [Measurability, Spec §FR-2]"
 
    **Scenario Classification & Coverage** (Requirements Quality Focus):
@@ -211,7 +211,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 **Important**: Each `/speckit.checklist` command invocation creates a checklist file using short, descriptive names unless file already exists. This allows:
 
-- Multiple checklists of different types (e.g., `ux.md`, `manual-validation.md`, `security.md`)
+- Multiple checklists of different types (e.g., `ux.md`, `test.md`, `security.md`)
 - Simple, memorable filenames that indicate checklist purpose
 - Easy identification and navigation in the `checklists/` folder
 
