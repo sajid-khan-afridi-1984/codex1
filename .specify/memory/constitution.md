@@ -1,50 +1,33 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Codex1 Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Clean Code First
+Favor lean components with intention-revealing names, clear data flow, and consistent patterns. Remove duplication quickly and keep files short enough to scan at a glance.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Simple UX
+Design the smallest experience that solves the problem. Limit cognitive load, keep copy concise, and ensure every interactive element has a single obvious outcome.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Responsive By Default
+Layouts must scale gracefully from mobile through desktop. Use fluid spacing, typography, and Tailwind responsive utilities to preserve usability across breakpoints and input methods.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Dependency Minimalism
+Build with the platform: Next.js 15.5.6, React 19.1.0, React DOM 19.1.0, and Tailwind CSS 4.x cover the needs of this project. Adding new dependencies requires written justification plus a documented removal plan.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Manual Quality Assurance Only (NON-NEGOTIABLE)
+Automated tests of any kind (unit, integration, e2e, snapshot, lint-to-test bridges) are prohibited. Quality relies on careful code reviews, manual walkthroughs, and live previews.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Delivery Constraints
+- Keep runtime and build outputs free from unused code or experimental flags.
+- Author UX copy, layout, and interactions with accessibility in mind: focus order, contrast, and keyboard support must remain intact.
+- Document any noteworthy decisions inline or in accompanying notes so future contributors can understand trade-offs without spelunking through history.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Workflow Expectations
+- Maintain a concise manual validation script alongside each feature describing desktop, tablet, and mobile checks plus accessibility considerations.
+- Audit dependency changes with every pull request; if a new package is unavoidable, capture why it is required and how it will be removed when no longer needed.
+- Favor incremental commits and feature toggles that keep `main` deployable without relying on tests.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution supersedes all other guidance for the project. Amendments demand consensus from project maintainers and must document rationale, impact, and rollout steps before adoption.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-10-19 | **Last Amended**: 2025-10-19
